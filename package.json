@@ -1,0 +1,16 @@
+{
+  "name": "project_1_test",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node --experimental-sqlite server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Student, Course, and Enrollment CRUD project for MAC 250"
+}

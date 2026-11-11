@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Database</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 30px auto; padding: 0 15px; }
+    section { border: 1px solid #ddd; border-radius: 8px; padding: 16px; margin-bottom: 20px; }
+    input { padding: 8px; margin: 4px; max-width: 190px; }
+    button { padding: 7px 12px; margin: 4px; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    @media (max-width: 600px) { section { overflow-x: auto; } }
+  </style>
+</head>
+<body>
+  <h1>School Database</h1>
+  <p>INSERT, UPDATE, and DELETE using HTML, JavaScript and SQLite.</p>
+
+  <section>
+    <h2>Students</h2>
+    <button type="button" onclick="loadTable('students')">Show All Students</button>
+    <form id="studentsForm">
+      <input name="first_name" placeholder="First name" required>
+      <input name="last_name" placeholder="Last name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <button type="submit">Insert</button>
+      <button type="button" onclick="clearForm('students')">Clear</button>
+    </form>
+    <table>
+      <thead><tr><th>ID</th><th>First</th><th>Last</th><th>Email</th><th>Actions</th></tr></thead>
+      <tbody id="studentsRows"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Courses</h2>
+    <button type="button" onclick="loadTable('courses')">Show All Courses</button>
+    <form id="coursesForm">
+      <input name="course_code" placeholder="Code (MAC190)" required>
+      <input name="course_name" placeholder="Course name" required>
+      <input name="credits" type="number" min="0" step="1" placeholder="Credits" required>
+      <button type="submit">Insert</button>
+      <button type="button" onclick="clearForm('courses')">Clear</button>
+    </form>
+    <table>
+      <thead><tr><th>ID</th><th>Code</th><th>Name</th><th>Credits</th><th>Actions</th></tr></thead>
+      <tbody id="coursesRows"></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Enrollments</h2>
+    <button type="button" onclick="loadTable('enrollments')">Show All Enrollments</button>
+    <p>Enter an existing student ID and course ID.</p>
+    <form id="enrollmentsForm">
+      <input name="student_id" type="number" min="1" placeholder="Student ID" required>
+      <input name="course_id" type="number" min="1" placeholder="Course ID" required>
+      <input name="registration_date" type="date" required>
+      <button type="submit">Insert</button>
+      <button type="button" onclick="clearForm('enrollments')">Clear</button>
+    </form>
+    <table>
+      <thead><tr><th>Student</th><th>Course</th><th>Date</th><th>Actions</th></tr></thead>
+      <tbody id="enrollmentsRows"></tbody>
+    </table>
+  </section>
+
+  <script src="/app.js"></script>
+</body>
+</html>
